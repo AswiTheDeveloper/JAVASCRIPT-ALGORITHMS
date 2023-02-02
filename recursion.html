@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RECURSION</title>
+</head>
+
+<body>
+    <script>
+        let values = [0, 1];
+
+        function Fibonacci(n) {
+            let l = values.length;
+            values.push(values[l - 1] + values[l - 2]);
+            if (n > 1) {
+                Fibonacci(n - 1)
+            }
+            return values;
+        }
+        console.log(Fibonacci(6));
+
+
+        function FibonacciRecursion(n) {
+            console.log(n);
+
+            if (n < 2) {
+                return n;
+            }
+            return FibonacciRecursion(n - 1) + FibonacciRecursion(n - 2);
+        }
+        console.log(FibonacciRecursion(4));
+        //Time Complexity Big-O(2^n);
+        //RECURSION IS NOT GOOD TECHNIQUE FOR FINDING FIBONACCI
+
+
+        function Factorial(n) {
+            if (n <= 1) return 1
+            return n * Factorial(n - 1);
+        }
+
+        console.log('Factorial', Factorial(4));
+
+
+
+
+        let arr = [4, 5, 3, 6, 2];
+
+        function search(data, n) {
+            data.forEach((e, i) => {
+                if (e == n) console.log(i);
+                return;
+            })
+            console.log(-1)
+
+        }
+        search(arr, 55)
+    </script>
+</body>
+
+</html>

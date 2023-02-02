@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubble Sort</title>
+</head>
+
+<body>
+    <script>
+        const bubbleSort = (arr) => {
+            for (let i = 0; i < arr.length - 1; i++) {
+                if (arr[i] > arr[i + 1]) {
+                    [arr[i], arr[i + 1]] = [arr[i + 1], arr[i]];
+                    return (bubbleSort(arr))
+                }
+            }
+            return arr;
+        }
+        console.log('recursive bubbleSort', bubbleSort([11, 4, 6, 2]));
+
+
+        const bubbleSort2 = (arr) => {
+            let checkAgain;
+            do {
+                checkAgain = false;
+                for (let i = 0; i < arr.length - 1; i++) {
+                    if (arr[i] > arr[i + 1]) {
+                        let temp = arr[i + 1];
+                        arr[i + 1] = arr[i];
+                        arr[i] = temp;
+                        checkAgain = true;
+                    }
+                }
+            } while (checkAgain)
+            return arr
+        }
+        console.log('second method', bubbleSort2([454, 656, 232, 87, 3]));
+        //Time Complexity
+        //Big-O(n^2) Quadratic (two loops in the solution)
+    </script>
+</body>
+
+</html>

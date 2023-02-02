@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MERGE SORT</title>
+</head>
+
+<body>
+    <script>
+        function mergeSort(arr) {
+            if (arr.length <= 1) return arr
+            let mid = Math.floor(arr.length / 2);
+            //Big-O(logn) reduced to half
+
+            let left = arr.slice(0, mid);
+            let right = arr.slice(mid);
+
+            return merge(mergeSort(left), mergeSort(right))
+
+        }
+
+        function merge(left, right) {
+
+            let sortedArr = [];
+
+            while (left.length && right.length) {
+                //Big-O(n) liner
+                if (left[0] < right[0]) sortedArr.push(left.shift());
+                else sortedArr.push(right.shift())
+            }
+            return [...sortedArr, ...left, ...right]
+        }
+
+        console.log(mergeSort([5, 4, 7, 2, 7, 8, 3, 6]))
+
+
+        //Time Complexity 
+        //Big-O(nlogn)
+    </script>
+</body>
+
+</html>
